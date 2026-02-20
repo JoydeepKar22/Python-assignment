@@ -1,27 +1,37 @@
+import logging
 from math import inf
 
-def secondLargest(ls: list[int]) -> int :
+logging.basicConfig(
+    filename="second_largest.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
+def secondLargest(ls: list[int]) -> int | float:
     """
     Finds the second largest distinct number in a list.
-
-    Args:
-        ls (list[int]): A list containing integers.
-
+    Parameters:
+        ls : A list containing integers
     Returns:
-        int The second largest number in the list. 
-                     Returns -inf if no distinct second largest number exists.
+        int | float: The second largest number in the list. Returns -inf if no second largest number exists.
     """
-    maxi =maxi2= -inf
+    logging.info(f"Finding the second largest number in the list: {ls}")
     
+    maxi = maxi2 = -inf
     
     for i in ls:
         if i > maxi:
-              maxi2 = maxi
-              maxi = i
+            maxi2 = maxi
+            maxi = i
         elif i > maxi2 and i < maxi:
             maxi2 = i
 
+    logging.info(f"Second largest number found: {maxi2}")
     return maxi2
 
+
 ls = [1, 3, 35, 6, 6]
-print(secondLargest(ls))
+result = secondLargest(ls)
+
+print("Second largest number:")
+print(result)
