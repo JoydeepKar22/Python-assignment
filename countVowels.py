@@ -18,7 +18,7 @@ def count_vowels(s: str) -> int:
     
     count = 0
     for i in s:
-        if i in "aeiou":
+        if i in "aeiouAEIOU":
             count += 1
             
     logging.info(f"Total vowels counted: {count}")
